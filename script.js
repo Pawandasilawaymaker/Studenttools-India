@@ -318,3 +318,23 @@ if (sgpaForm) {
     sgpaResult.hidden = false;
   });
 }
+const addSgpaSubject = document.getElementById("addSgpaSubject");
+const sgpaSubjects = document.getElementById("sgpaSubjects");
+
+if (addSgpaSubject && sgpaSubjects) {
+  addSgpaSubject.addEventListener("click", function () {
+    const subjectNumber =
+      sgpaSubjects.querySelectorAll(".sgpa-subject").length + 1;
+
+    const subject = document.createElement("div");
+    subject.className = "form-group sgpa-subject";
+
+    subject.innerHTML = `
+      <label>Subject ${subjectNumber}</label>
+      <input type="number" class="subject-credit" placeholder="Credits" min="0" step="any" required>
+      <input type="number" class="subject-grade" placeholder="Grade Point" min="0" max="10" step="any" required>
+    `;
+
+    sgpaSubjects.appendChild(subject);
+  });
+}
