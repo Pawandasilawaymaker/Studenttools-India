@@ -338,3 +338,74 @@ if (addSgpaSubject && sgpaSubjects) {
     sgpaSubjects.appendChild(subject);
   });
 }
+// GPA Calculator
+const gpaForm = document.getElementById("gpaForm");
+const gpaResult = document.getElementById("gpaResult");
+const gpaError = document.getElementById("gpaError");
+const addGpaSubject = document.getElementById("addGpaSubject");
+const gpaSubjects = document.getElementById("gpaSubjects");
+
+if (addGpaSubject && gpaSubjects) {
+  addGpaSubject.addEventListener("click", function () {
+    const number =
+      gpaSubjects.querySelectorAll(".gpa-subject").length + 1;
+
+    const subject = document.createElement("div");
+    subject.className = "form-group gpa-subject";
+
+    subject.innerHTML = `
+      <label>Subject ${number}</label>
+      <input type="number" class="gpa-credit" placeholder="Credits" min="0" step="any" required>
+      <input type="number" class="gpa-grade" placeholder="Grade Point" min="0" max="4" step="any" required>
+    `;
+
+    gpaSubjects.appendChild(subject);
+  });
+}
+
+if (gpaForm) {
+  gpaForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const credits = document.querySelectorAll(".gpa-credit");
+    const grades = document.querySelectorAll(".gpa-grade");
+
+    let totalCredits = 0;
+    let totalPoints = 0;
+
+    gpaError.hidden = true;
+    gpaResult.hidden = true;
+
+    for (let i = 0; i < credits.length; i++) {
+      const credit = parseFloat(credits[i].value);
+      const grade = parseFloat(grades[i].value);
+
+      if (
+        !Number.isFinite(credit) ||
+        !Number.isFinite(grade) ||
+        credit <= 0 ||
+        grade < 0 ||
+        grade > 4
+      ) {
+        gpaError.textContent =
+          "Please enter valid credits and grade points between 0 and 4.";
+        gpaError.hidden = false;
+        return;
+      }
+
+      totalCredits += credit;
+      totalPoints += credit * grade;
+    }
+
+    if (totalCredits === 0) {
+      gpaError.textContent = "Total credits must be greater than 0.";
+      gpaError.hidden = false;
+      return;
+    }
+
+    const gpa = totalPoints / totalCredits;
+
+    gpaResult.innerHTML = `<strong>Your GPA: ${gpa.toFixed(2)}</strong>`;
+    gpaResult.hidden = false;
+  });
+}
