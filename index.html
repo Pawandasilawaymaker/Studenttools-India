@@ -145,7 +145,51 @@
       </div>
     </div>
   </section>
+<!-- ================= SGPA CALCULATOR ================= -->
+<section id="sgpa" class="tool-section" aria-labelledby="sgpa-heading">
+  <div class="container">
+    <h2 id="sgpa-heading">SGPA Calculator</h2>
+    <p class="tool-sub">
+      Calculate your Semester Grade Point Average (SGPA) using subject credits and grade points.
+    </p>
 
+    <form id="sgpaForm" class="calc-form" novalidate>
+      <div id="sgpaSubjects">
+        <div class="form-group sgpa-subject">
+          <label>Subject 1</label>
+          <input type="number" class="subject-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="subject-grade" placeholder="Grade Point" min="0" max="10" step="any" required>
+        </div>
+
+        <div class="form-group sgpa-subject">
+          <label>Subject 2</label>
+          <input type="number" class="subject-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="subject-grade" placeholder="Grade Point" min="0" max="10" step="any" required>
+        </div>
+
+        <div class="form-group sgpa-subject">
+          <label>Subject 3</label>
+          <input type="number" class="subject-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="subject-grade" placeholder="Grade Point" min="0" max="10" step="any" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary">Calculate SGPA</button>
+    </form>
+
+    <div id="sgpaResult" class="result-box" hidden></div>
+    <p id="sgpaError" class="error-text" hidden></p>
+
+    <div class="explanation">
+      <h3>How SGPA is calculated</h3>
+      <p>SGPA is calculated using the credit-weighted average of grade points:</p>
+      <pre>SGPA = Σ(Credit × Grade Point) ÷ Σ(Credits)</pre>
+      <p>
+        Enter the credit and grade point for each subject to calculate your semester SGPA.
+      </p>
+    </div>
+  </div>
+</section>
   <!-- ================= FAQ ================= -->
   <section id="faq" class="faq-section">
     <div class="container">
