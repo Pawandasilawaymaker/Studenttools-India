@@ -268,3 +268,53 @@ function initAttendanceCalculator() {
     resultBox.hidden = false;
   });
 }
+const sgpaForm = document.getElementById("sgpaForm");
+const sgpaResult = document.getElementById("sgpaResult");
+const sgpaError = document.getElementById("sgpaError");
+
+if (sgpaForm) {
+  sgpaForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const credits = document.querySelectorAll(".subject-credit");
+    const grades = document.querySelectorAll(".subject-grade");
+
+    let totalCredits = 0;
+    let weightedPoints = 0;
+
+    sgpaError.hidden = true;
+    sgpaResult.hidden = true;
+
+    for (let i = 0; i < credits.length; i++) {
+      const credit = parseFloat(credits[i].value);
+      const grade = parseFloat(grades[i].value);
+
+      if (
+        !Number.isFinite(credit) ||
+        !Number.isFinite(grade) ||
+        credit <= 0 ||
+        grade < 0 ||
+        grade > 10
+      ) {
+        sgpaError.textContent =
+          "Please enter valid credits and grade points (0–10) for every subject.";
+        sgpaError.hidden = false;
+        return;
+      }
+
+      totalCredits += credit;
+      weightedPoints += credit * grade;
+    }
+
+    if (totalCredits === 0) {
+      sgpaError.textContent = "Total credits must be greater than 0.";
+      sgpaError.hidden = false;
+      return;
+    }
+
+    const sgpa = weightedPoints / totalCredits;
+
+    sgpaResult.innerHTML = `<strong>Your SGPA: ${sgpa.toFixed(2)}</strong>`;
+    sgpaResult.hidden = false;
+  });
+}
