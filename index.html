@@ -191,6 +191,51 @@
     </div>
   </div>
 </section>
+ <!-- ================= GPA CALCULATOR ================= -->
+<section id="gpa" class="tool-section" aria-labelledby="gpa-heading">
+  <div class="container">
+    <h2 id="gpa-heading">GPA Calculator</h2>
+    <p class="tool-sub">
+      Calculate your GPA using your subjects, credits, and grade points.
+    </p>
+
+    <form id="gpaForm" class="calc-form" novalidate>
+      <div id="gpaSubjects">
+
+        <div class="form-group gpa-subject">
+          <label>Subject 1</label>
+          <input type="number" class="gpa-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="gpa-grade" placeholder="Grade Point" min="0" max="4" step="any" required>
+        </div>
+
+        <div class="form-group gpa-subject">
+          <label>Subject 2</label>
+          <input type="number" class="gpa-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="gpa-grade" placeholder="Grade Point" min="0" max="4" step="any" required>
+        </div>
+
+        <div class="form-group gpa-subject">
+          <label>Subject 3</label>
+          <input type="number" class="gpa-credit" placeholder="Credits" min="0" step="any" required>
+          <input type="number" class="gpa-grade" placeholder="Grade Point" min="0" max="4" step="any" required>
+        </div>
+
+      </div>
+
+      <button type="button" id="addGpaSubject" class="btn-primary">+ Add Subject</button>
+      <button type="submit" class="btn-primary">Calculate GPA</button>
+    </form>
+
+    <div id="gpaResult" class="result-box" hidden></div>
+    <p id="gpaError" class="error-text" hidden></p>
+
+    <div class="explanation">
+      <h3>How GPA is calculated</h3>
+      <p>GPA is calculated using the credit-weighted average of grade points:</p>
+      <pre>GPA = Σ(Credit × Grade Point) ÷ Σ(Credits)</pre>
+    </div>
+  </div>
+</section> 
   <!-- ================= FAQ ================= -->
   <section id="faq" class="faq-section">
     <div class="container">
