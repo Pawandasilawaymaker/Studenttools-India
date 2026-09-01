@@ -409,3 +409,47 @@ if (gpaForm) {
     gpaResult.hidden = false;
   });
 }
+// Percentage Increase / Decrease Calculator
+const percentChangeForm = document.getElementById("percentChangeForm");
+const percentChangeResult = document.getElementById("percentChangeResult");
+const percentChangeError = document.getElementById("percentChangeError");
+
+if (percentChangeForm) {
+  percentChangeForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const oldValue = parseFloat(document.getElementById("oldValue").value);
+    const newValue = parseFloat(document.getElementById("newValue").value);
+
+    percentChangeError.hidden = true;
+    percentChangeResult.hidden = true;
+
+    if (!Number.isFinite(oldValue) || !Number.isFinite(newValue)) {
+      percentChangeError.textContent = "Please enter both values.";
+      percentChangeError.hidden = false;
+      return;
+    }
+
+    if (oldValue === 0) {
+      percentChangeError.textContent =
+        "Original Value cannot be 0.";
+      percentChangeError.hidden = false;
+      return;
+    }
+
+    const change = ((newValue - oldValue) / Math.abs(oldValue)) * 100;
+
+    if (change > 0) {
+      percentChangeResult.innerHTML =
+        `<strong>Percentage Increase: ${change.toFixed(2)}%</strong>`;
+    } else if (change < 0) {
+      percentChangeResult.innerHTML =
+        `<strong>Percentage Decrease: ${Math.abs(change).toFixed(2)}%</strong>`;
+    } else {
+      percentChangeResult.innerHTML =
+        `<strong>No Percentage Change: 0%</strong>`;
+    }
+
+    percentChangeResult.hidden = false;
+  });
+}
