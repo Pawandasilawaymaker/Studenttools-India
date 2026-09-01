@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Tools India - Free Percentage, CGPA & Attendance Calculators</title>
+<meta name="description" content="Free online calculators for Indian students: Percentage Calculator, CGPA to Percentage Calculator, and Attendance Calculator. Fast, accurate, and mobile-friendly.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="logo">Student<span>Tools</span>India</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#percentage" class="nav-link" data-tool="percentage">Percentage Calculator</a>
+      <a href="#cgpa" class="nav-link" data-tool="cgpa">CGPA to Percentage</a>
+      <a href="#attendance" class="nav-link" data-tool="attendance">Attendance Calculator</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <h1>Free Calculators for Indian Students</h1>
+      <p>Quickly calculate your percentage, convert CGPA to percentage, and track your attendance — right in your browser, no sign-up needed.</p>
+    </div>
+  </section>
+
+  <!-- Tool Switcher Tabs (mobile-friendly) -->
+  <div class="container">
+    <div class="tool-tabs" role="tablist" aria-label="Choose a calculator">
+      <button class="tool-tab active" data-tool="percentage" role="tab" aria-selected="true">Percentage</button>
+      <button class="tool-tab" data-tool="cgpa" role="tab" aria-selected="false">CGPA</button>
+      <button class="tool-tab" data-tool="attendance" role="tab" aria-selected="false">Attendance</button>
+    </div>
+  </div>
+
+  <!-- ================= PERCENTAGE CALCULATOR ================= -->
+  <section id="percentage" class="tool-section active" aria-labelledby="percentage-heading">
+    <div class="container">
+      <h2 id="percentage-heading">Percentage Calculator</h2>
+      <p class="tool-sub">Calculate the percentage of marks you scored out of the total marks.</p>
+
+      <form id="percentageForm" class="calc-form" novalidate>
+        <div class="form-group">
+          <label for="obtainedMarks">Marks Obtained</label>
+          <input type="number" id="obtainedMarks" inputmode="decimal" placeholder="e.g. 450" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="totalMarks">Total Marks</label>
+          <input type="number" id="totalMarks" inputmode="decimal" placeholder="e.g. 500" step="any" required>
+        </div>
+        <button type="submit" class="btn-primary">Calculate Percentage</button>
+      </form>
+
+      <div id="percentageResult" class="result-box" hidden></div>
+      <p id="percentageError" class="error-text" hidden></p>
+
+      <div class="explanation">
+        <h3>How this is calculated</h3>
+        <p>Percentage is calculated using the formula:</p>
+        <pre>Percentage = (Marks Obtained / Total Marks) × 100</pre>
+        <p>For example, if you scored 450 out of 500, your percentage is (450 / 500) × 100 = 90%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CGPA TO PERCENTAGE ================= -->
+  <section id="cgpa" class="tool-section" aria-labelledby="cgpa-heading">
+    <div class="container">
+      <h2 id="cgpa-heading">CGPA to Percentage Calculator</h2>
+      <p class="tool-sub">Convert your CGPA (on a 10-point scale) into an equivalent percentage.</p>
+
+      <form id="cgpaForm" class="calc-form" novalidate>
+        <div class="form-group">
+          <label for="cgpaValue">CGPA (0 - 10)</label>
+          <input type="number" id="cgpaValue" inputmode="decimal" placeholder="e.g. 8.4" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="cgpaMultiplier">Conversion Factor (optional)</label>
+          <input type="number" id="cgpaMultiplier" inputmode="decimal" placeholder="Default: 9.5" step="any">
+          <small class="field-hint">Most Indian universities (including CBSE) use 9.5. Check your institution's official formula if unsure.</small>
+        </div>
+        <button type="submit" class="btn-primary">Convert to Percentage</button>
+      </form>
+
+      <div id="cgpaResult" class="result-box" hidden></div>
+      <p id="cgpaError" class="error-text" hidden></p>
+
+      <div class="explanation">
+        <h3>How this is calculated</h3>
+        <p>The most commonly used formula (used by CBSE and many Indian universities) is:</p>
+        <pre>Percentage = CGPA × 9.5</pre>
+        <p>For example, a CGPA of 8.4 converts to 8.4 × 9.5 = 79.8%.</p>
+        <p><strong>Note:</strong> Some universities use a different conversion factor (e.g. 9.0 or 10). Always confirm the exact formula with your institution before using the result for official purposes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ATTENDANCE CALCULATOR ================= -->
+  <section id="attendance" class="tool-section" aria-labelledby="attendance-heading">
+    <div class="container">
+      <h2 id="attendance-heading">Attendance Calculator</h2>
+      <p class="tool-sub">Check your current attendance percentage, and find out how many classes you can safely miss or need to attend.</p>
+
+      <form id="attendanceForm" class="calc-form" novalidate>
+        <div class="form-group">
+          <label for="classesAttended">Classes Attended</label>
+          <input type="number" id="classesAttended" inputmode="numeric" placeholder="e.g. 42" step="1" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="classesHeld">Total Classes Held So Far</label>
+          <input type="number" id="classesHeld" inputmode="numeric" placeholder="e.g. 50" step="1" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="requiredPercent">Required Attendance %</label>
+          <input type="number" id="requiredPercent" inputmode="decimal" placeholder="e.g. 75" step="any" min="1" max="100" required>
+        </div>
+        <button type="submit" class="btn-primary">Calculate Attendance</button>
+      </form>
+
+      <div id="attendanceResult" class="result-box" hidden></div>
+      <p id="attendanceError" class="error-text" hidden></p>
+
+      <div class="explanation">
+        <h3>How this is calculated</h3>
+        <p>Current attendance percentage:</p>
+        <pre>Attendance % = (Classes Attended / Classes Held) × 100</pre>
+        <p>If your attendance is below the required percentage, we calculate how many <em>consecutive future classes</em> you'd need to attend (assuming you attend all of them) to reach the requirement.</p>
+        <p>If your attendance is already at or above the requirement, we calculate how many future classes you could skip while still staying at or above the requirement (assuming the total number of classes keeps increasing).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Is this Percentage Calculator accurate?</h3>
+        <p>Yes. It uses the standard formula (Marks Obtained ÷ Total Marks × 100) with no rounding shortcuts, so the result is mathematically exact.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What CGPA-to-percentage formula should I use?</h3>
+        <p>The 9.5 multiplier is the most common formula used by CBSE and many Indian universities, but it is not universal. Some institutions use their own conversion factor. Check your official mark sheet, university handbook, or registrar's office for the exact formula that applies to you.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How does the attendance shortfall/surplus calculation work?</h3>
+        <p>It assumes a simple ongoing scenario: for a shortfall, it estimates how many classes you'd need to attend in a row (with total classes also increasing by one each time) to reach your target percentage. For a surplus, it estimates how many additional classes could be held without you attending, while your percentage stays at or above the target. Actual results may vary slightly depending on your institution's specific attendance policy.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do I need to sign up or install anything?</h3>
+        <p>No. All calculators run directly in your browser using plain JavaScript. Nothing is uploaded, stored, or sent to any server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this website work on mobile?</h3>
+        <p>Yes. The site is built mobile-first, so it works smoothly on phones, tablets, and desktops.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="logo">Student<span>Tools</span>India</p>
+      <p>Simple, free calculators built for Indian students.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+  <div class="container">
+    <p class="copyright">&copy; <span id="year"></span> StudentTools India. All calculations are provided for informational purposes only.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
