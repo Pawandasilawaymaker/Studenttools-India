@@ -238,6 +238,61 @@
     </div>
   </div>
 </section> 
+  <!-- ================= PERCENTAGE INCREASE / DECREASE ================= -->
+<section id="percent-change" class="tool-section" aria-labelledby="percent-change-heading">
+  <div class="container">
+    <h2 id="percent-change-heading">Percentage Increase & Decrease Calculator</h2>
+
+    <p class="tool-sub">
+      Calculate the percentage increase or decrease between two numbers.
+    </p>
+
+    <form id="percentChangeForm" class="calc-form" novalidate>
+
+      <div class="form-group">
+        <label for="oldValue">Original Value</label>
+        <input
+          type="number"
+          id="oldValue"
+          inputmode="decimal"
+          placeholder="e.g. 500"
+          step="any"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="newValue">New Value</label>
+        <input
+          type="number"
+          id="newValue"
+          inputmode="decimal"
+          placeholder="e.g. 600"
+          step="any"
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Calculate Change
+      </button>
+
+    </form>
+
+    <div id="percentChangeResult" class="result-box" hidden></div>
+    <p id="percentChangeError" class="error-text" hidden></p>
+
+    <div class="explanation">
+      <h3>How it is calculated</h3>
+      <pre>
+Percentage Change = ((New Value - Original Value) / Original Value) × 100
+      </pre>
+      <p>
+        A positive result means an increase, while a negative result means a decrease.
+      </p>
+    </div>
+  </div>
+</section>
   <!-- ================= FAQ ================= -->
   <section id="faq" class="faq-section">
     <div class="container">
