@@ -104,4 +104,273 @@
     }
 
     input {
-      width: 100
+      width: 100%;
+      max-width: 400px;
+      padding: 12px;
+      border: 1px solid #bbb;
+      border-radius: 7px;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    button,
+    .button {
+      display: inline-block;
+      background: #1f7a4d;
+      color: white;
+      border: none;
+      text-decoration: none;
+      padding: 11px 17px;
+      border-radius: 7px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-top: 5px;
+    }
+
+    button:hover,
+    .button:hover {
+      background: #155d3a;
+    }
+
+    #result {
+      margin-top: 18px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .formula {
+      background: #f5f7fb;
+      padding: 15px;
+      border-left: 4px solid #1f7a4d;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      background: #173c2b;
+      color: white;
+      text-align: center;
+      padding: 25px 16px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 650px) {
+      h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="site-name">Student Tools India</div>
+
+    <nav>
+      <a href="index.html">Calculators</a>
+      <a href="index.html#percentage">Percentage</a>
+      <a href="index.html#cgpa">CGPA</a>
+      <a href="index.html#attendance">Attendance</a>
+      <a href="index.html#sgpa">SGPA</a>
+      <a href="index.html#gpa">GPA</a>
+      <a href="index.html#percent-change">Percentage Change</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="card">
+
+    <h1>CGPA to Percentage Calculator</h1>
+
+    <p>
+      Convert your CGPA to percentage instantly using our free
+      CGPA to Percentage Calculator. Enter your CGPA below to
+      calculate the equivalent percentage.
+    </p>
+
+    <div class="calculator">
+
+      <label for="cgpa">Enter your CGPA</label>
+
+      <input
+        type="number"
+        id="cgpa"
+        placeholder="Example: 8.5"
+        min="0"
+        max="10"
+        step="0.01"
+      >
+
+      <button onclick="calculatePercentage()">
+        Calculate Percentage
+      </button>
+
+      <div id="result">
+        Enter your CGPA to see the result.
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>CGPA to Percentage Formula</h2>
+
+    <p>
+      A commonly used conversion formula is:
+    </p>
+
+    <div class="formula">
+      Percentage = CGPA × 9.5
+    </div>
+
+    <p>
+      For example, if your CGPA is 8.5:
+    </p>
+
+    <div class="formula">
+      8.5 × 9.5 = 80.75%
+    </div>
+
+    <p>
+      However, the official conversion formula can vary by university,
+      college or education board. Always check your institution's
+      official guidelines when an exact official percentage is required.
+    </p>
+
+  </section>
+
+  <section class="card">
+
+    <h2>CGPA to Percentage Examples</h2>
+
+    <p><strong>10 CGPA:</strong> 95%</p>
+    <p><strong>9 CGPA:</strong> 85.5%</p>
+    <p><strong>8.5 CGPA:</strong> 80.75%</p>
+    <p><strong>8 CGPA:</strong> 76%</p>
+    <p><strong>7.5 CGPA:</strong> 71.25%</p>
+    <p><strong>7 CGPA:</strong> 66.5%</p>
+    <p><strong>6.5 CGPA:</strong> 61.75%</p>
+    <p><strong>6 CGPA:</strong> 57%</p>
+
+  </section>
+
+  <section class="card">
+
+    <h2>How to Convert CGPA to Percentage</h2>
+
+    <ol>
+      <li>Enter your CGPA in the calculator.</li>
+      <li>Multiply the CGPA by 9.5.</li>
+      <li>The result is the estimated percentage using this formula.</li>
+      <li>Check your university's official conversion rule if applicable.</li>
+    </ol>
+
+  </section>
+
+  <section class="card">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I convert 8 CGPA to percentage?</h3>
+    <p>
+      Using the 9.5 conversion formula, 8 CGPA is equal to 76%.
+    </p>
+
+    <h3>How much percentage is 9 CGPA?</h3>
+    <p>
+      Using the 9.5 formula, 9 CGPA is equal to 85.5%.
+    </p>
+
+    <h3>Is CGPA always converted using 9.5?</h3>
+    <p>
+      No. Conversion rules can differ between institutions.
+      Check your university or board guidelines when an official
+      conversion is required.
+    </p>
+
+  </section>
+
+  <section class="card">
+
+    <h2>Related Student Tools</h2>
+
+    <p>
+      You can also use our other free calculators for percentage,
+      attendance, SGPA and GPA calculations.
+    </p>
+
+    <a class="button" href="index.html">
+      Explore All Calculators →
+    </a>
+
+    <a class="button" href="blog.html">
+      Read Student Guides →
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>© 2026 Student Tools India</p>
+
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Use</a> |
+    <a href="index.html#contact">Contact</a>
+  </p>
+
+</footer>
+
+<script>
+  function calculatePercentage() {
+
+    const cgpaInput = document.getElementById("cgpa");
+    const result = document.getElementById("result");
+
+    const cgpa = parseFloat(cgpaInput.value);
+
+    if (isNaN(cgpa)) {
+      result.textContent = "Please enter your CGPA.";
+      return;
+    }
+
+    if (cgpa < 0 || cgpa > 10) {
+      result.textContent = "Please enter a CGPA between 0 and 10.";
+      return;
+    }
+
+    const percentage = cgpa * 9.5;
+
+    result.innerHTML =
+      "Your estimated percentage is <strong>" +
+      percentage.toFixed(2) +
+      "%</strong>";
+  }
+</script>
+
+</body>
+</html>
